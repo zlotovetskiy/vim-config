@@ -1,5 +1,4 @@
 set nocompatible
-
 call plug#begin('~/.vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -28,16 +27,25 @@ call plug#begin('~/.vim/plugged')
   Plug 'ryanoasis/vim-devicons'
   Plug 'p0deje/vim-ruby-interpolation'
   Plug 'terryma/vim-multiple-cursors'
+  Plug 'vim-scripts/Gundo'
+  Plug 'scwood/vim-hybrid'
+  Plug 'miyakogi/conoline.vim'
+  Plug 'scrooloose/syntastic'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'rhysd/vim-crystal'
 call plug#end()
 
 " Default vim config
-colorscheme onedark
-set guifont=Sauce\ Code\ Powerline\ Plus\ Nerd\ File\ Types:h14
+set t_Co=256
 syntax on
-set number
 set rnu
+set background=dark
+colorscheme hybrid
+
+set guifont=Hurmit\ Light\ Nerd\ Font\ Complete:h14
 set expandtab ts=2 sw=2 ai
 set showtabline=2
+set number
 set noswapfile
 set list
 set listchars=trail:•
@@ -51,14 +59,11 @@ set laststatus=2
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_alt_sep = ' '
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme='base16_ocean'
-
-" Show WSDL highlighting as XML
-au BufRead,BufNewFile *.wsdl set filetype=xml
+let g:airline_theme='luna'
 
 " NerdTree Toggle
 map \\ :NERDTreeToggle<CR>
@@ -85,3 +90,15 @@ let g:syntastic_enable_highlighting = 0
 
 " Grep as Ctrl-F
 map <C-f> :Grep <CR>
+
+" Conoline
+let g:conoline_auto_enable = 1
+
+" C family
+au Filetype c source ~/.vim/configs/c.vim
+au Filetype cpp source ~/.vim/configs/c.vim
+au Filetype .h source ~/.vim/configs/c.vim
+
+" Show WSDL highlighting as XML
+au BufRead,BufNewFile *.wsdl set filetype=xml
+au BufRead,BufNewFile *.cr set filetype=ruby
