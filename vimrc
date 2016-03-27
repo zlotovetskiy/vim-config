@@ -9,7 +9,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'slim-template/vim-slim'
   Plug 'tpope/vim-haml'
-  Plug 'msanders/snipmate.vim'
+  Plug 'FroSTD/frostd-snippets.vim'
   Plug 'L9'
   Plug 'FuzzyFinder'
   Plug 'thoughtbot/vim-rspec'
