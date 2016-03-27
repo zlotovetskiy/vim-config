@@ -3,7 +3,7 @@ snippet inf
 		${2}
 	}
 snippet ft
-	${1:field}: ${2:string}
+	${1:field}: ${2:string};
 snippet class
 	class ${1:Name} {
 		${2}
@@ -38,3 +38,15 @@ snippet enum
 	}
 snippet exp
 	export ${1:*} from "${2:path}";
+snippet module
+	module ${1:name} {
+		${2}
+	}
+snippet expcls
+	export class ${1:ClassName} {
+		${2}
+	}
+snippet expfun
+	export function ${1:funName}(${2}) {
+		${3}
+	}
