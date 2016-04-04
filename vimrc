@@ -33,6 +33,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'scrooloose/syntastic'
   Plug 'leafgarland/typescript-vim'
   Plug 'rhysd/vim-crystal'
+  Plug 'digitaltoad/vim-pug'
+  Plug 'burnettk/vim-angular'
+  Plug 'rizzatti/dash.vim'
 call plug#end()
 
 " Default vim config
@@ -89,7 +92,7 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_enable_highlighting = 0
 
 " Grep as Ctrl-F
-map <C-f> :Grep <CR>
+map <C-f> :Grep<CR>
 
 " Conoline
 let g:conoline_auto_enable = 1
@@ -102,3 +105,6 @@ au Filetype .h source ~/.vim/configs/c.vim
 " Show WSDL highlighting as XML
 au BufRead,BufNewFile *.wsdl set filetype=xml
 au BufRead,BufNewFile *.cr set filetype=ruby
+
+" Ionic support
+let g:syntastic_html_tidy_ignore_errors=["<ion-", "discarding unexpected </ion-", " proprietary attribute \"ng-"]
