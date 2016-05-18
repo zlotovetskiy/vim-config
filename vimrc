@@ -36,16 +36,23 @@ call plug#begin('~/.vim/plugged')
   Plug 'digitaltoad/vim-pug'
   Plug 'burnettk/vim-angular'
   Plug 'rizzatti/dash.vim'
+  Plug 'scwood/vim-hybrid'
 call plug#end()
 
 " Default vim config
 set t_Co=256
 syntax on
 set rnu
-set background=dark
+if strftime("%H") > 9
+  set background=light
+  let g:airline_theme='sol'
+else
+  let g:airline_theme='luna'
+  set background=dark
+endif
 colorscheme hybrid
 
-set guifont=Hurmit\ Light\ Nerd\ Font\ Complete:h14
+set guifont=Hurmit\ Light\ Nerd\ Font\ Complete:h15
 set expandtab ts=2 sw=2 ai
 set showtabline=2
 set number
@@ -66,7 +73,6 @@ let g:airline#extensions#tabline#left_alt_sep = ' '
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme='luna'
 
 " NerdTree Toggle
 map \\ :NERDTreeToggle<CR>
